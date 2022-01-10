@@ -32,3 +32,4 @@ python-dotenv
 Pillow
 flask-bcrypt
 flask_ckeditor
+gunicorn
