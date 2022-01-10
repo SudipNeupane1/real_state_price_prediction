@@ -1,0 +1,49 @@
+
+{% extends "index.html" %}
+{% block content %}
+
+{% for message in get_flashed_messages() %}
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	  {{ message }}
+	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>
+{% endfor %}
+
+<br/>
+    {% for post in posts.items %}
+        
+          
+          
+          <div class="shadow p-3 mb-5 bg-body rounded">
+            <img class="rounded-circle" src="{{ url_for('static', filename='profile_pics/' + post.poster.image_file) }}">
+              <a  href="{{ url_for('user_posts', username=post.poster.username) }}">{{ post.poster.username }}</a><br/>
+              <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d') }}</small><br/><br/>
+          
+             <h2><a  href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h2>
+             {{ post.content|safe }}
+             <br/><br/>
+            <a href="{{ url_for('post', post_id=post.id)}}" class="btn btn-outline-secondary btn-sm">View Post</a>
+            
+            {% if post.user_id == current_user.id %}
+            <a href="{{ url_for('update_post', post_id=post.id)}}" class="btn btn-outline-secondary btn-sm">Edit Post</a>
+
+            <a href="{{ url_for('delete_post', post_id=post.id)}}" class="btn btn-outline-danger btn-sm">Delete Post</a>
+
+            {% endif %}
+
+            <br/><br/>
+          </div>
+        
+    {% endfor %}
+    {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+      {% if page_num %}
+        {% if posts.page == page_num %}
+          <a class="btn btn-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% else %}
+          <a class="btn btn-outline-info mb-4" href="{{ url_for('home', page=page_num) }}">{{ page_num }}</a>
+        {% endif %}
+      {% else %}
+        ...
+      {% endif %}
+    {% endfor %}
+{% endblock %}

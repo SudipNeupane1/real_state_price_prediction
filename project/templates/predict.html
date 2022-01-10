@@ -1,0 +1,57 @@
+
+{% extends "index.html" %}
+{% block content %}
+<div class="img"></div>
+<h1 class="shadow-sm p-2 mb-4 bg-body rounded">Bengaluru House Price Prediction</h1>
+
+<div class="shadow p-3 mb-5 bg-body rounded">
+<form >
+	<h2 class="sqft">Area in Sq. ft</h2>
+    <input class=form-control  type="number" id="uiSqft" class="floatLabel" name="Squareft" value="1000">
+	<h2 class="bhk">BHK</h2>
+	<div class="form-group form-check">
+		<input type="radio" id="radio-bhk-1" name="uiBHK" value="1" checked/>
+		<label for="radio-bhk-1">1</label>
+		<input type="radio" id="radio-bhk-2" name="uiBHK" value="2"/>
+		<label for="radio-bhk-2">2</label>
+		<input type="radio" id="radio-bhk-3" name="uiBHK" value="3"/>
+		<label for="radio-bhk-3">3</label>
+		<input type="radio" id="radio-bhk-4" name="uiBHK" value="4"/>
+		<label for="radio-bhk-4">4</label>
+		<input type="radio" id="radio-bhk-5" name="uiBHK" value="5"/>
+		<label for="radio-bhk-5">5</label>
+	</div>
+
+	<h2>Bathroom</h2>
+	<div class="form-group form-check"id=bathroom>
+		<input type="radio" id="radio-bath-1" name="uiBathrooms" value="1"  checked/>
+		<label for="radio-bath-1">1</label>
+		<input type="radio" id="radio-bath-2" name="uiBathrooms" value="2"/>
+		<label for="radio-bath-2">2</label>
+		<input type="radio" id="radio-bath-3" name="uiBathrooms" value="3"/>
+		<label for="radio-bath-3">3</label>
+		<input type="radio" id="radio-bath-4" name="uiBathrooms" value="4"/>
+		<label for="radio-bath-4">4</label>
+		<input type="radio" id="radio-bath-5" name="uiBathrooms" value="5"/>
+		<label for="radio-bath-5">5</label>
+	</div>
+		<h2>Location</h2>
+	<div class ="mb-3">
+  <select class="form-select mt-2" name="" id="uiLocations">
+    <option value="" disabled="disabled" selected>Select Location</option>
+		<option>billekahalli</option>
+        <option>whitefield</option>
+  </select>
+</div>
+	<button type="button"class="btn btn-secondary" onclick="onClickedEstimatePrice()" type="button">ESTIMATE</button>
+	<div id="uiEstimatedPrice" class="result">	<h2></h2> </div>
+    <!-- <button onclick="generatePDF()">Download as PDF</button>
+    <div id='invoice'></div> -->
+
+
+  <p>
+    <button type="button"class="btn btn-secondary" onclick='generatePDF();'>Print</button>
+  </p>
+  </form>
+  </div>
+{% endblock content %}
