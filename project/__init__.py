@@ -29,10 +29,11 @@ app.config['MAIL_DOMAIN']='gmail.com'
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_AUTHENTICATION'] = 'PLAIN'
 app.config['MAIL_ENABLE_STARTTLS_AUTO']= True
-app.config['MAIL_USERNAME'] = '5u6i9.ui@gmail.com'
-app.config['MAIL_PASSWORD'] = '983427sudip'
+app.config['MAIL_USERNAME'] = os.environ.get('EMAIL_USER')
+app.config['MAIL_PASSWORD'] = os.environ.get('EMAIL_PASS')
 mail = Mail(app)
 
-     
+
 from project import main1
+util1.load_saved_artifacts() 
 from project import util1

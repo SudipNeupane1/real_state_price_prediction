@@ -154,7 +154,6 @@ def reset_token(token):
 
 
 @app.route('/get_location_names', methods=['GET'])
-@login_required
 def get_location_names():
     response = jsonify({
         'locations': util1.get_location_names()
@@ -165,7 +164,6 @@ def get_location_names():
     
 
 @app.route('/predict_home_price', methods=['GET', 'POST'])
-@login_required
 def predict_home_price():
     total_sqft = float(request.form['total_sqft'])
     location = request.form['location']
