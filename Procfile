@@ -1,2 +1,2 @@
-web: gunicorn Rspredict:wsgi
+web: gunicorn Rspredict:app
 
