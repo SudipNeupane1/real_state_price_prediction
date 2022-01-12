@@ -56,16 +56,15 @@
                 <br/>
             </fieldset>
             <div class="form-group">
-                {{ form.submit(class="btn btn-secondary") }}
+                {{ form.submit(class="btn btn-outline-info") }}
                 <small class="text-muted ml-2">
                     <a href="{{ url_for('reset_request') }}">Forgot Password?</a>
                 </small>
             </div>
         </form>
     </div>
-   
     <div class="border-top pt-2">
-        <small class="shadow-sm p-2 mb-4 bg-body rounded">
+        <small>
             Need An Account? <a class="ml-2" href="{{ url_for('register') }}">Sign Up Now</a>
         </small>
     </div>
