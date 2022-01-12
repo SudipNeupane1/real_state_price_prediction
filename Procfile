@@ -1,2 +1,2 @@
-web: gunicorn Rspredict:app
+web: gunicorn run:app
 
