@@ -89,6 +89,8 @@ celerybeat-schedule
 env/
 venv/
 ENV/
+datasets/
+nbs/
 
 # Spyder project settings
 .spyderproject
